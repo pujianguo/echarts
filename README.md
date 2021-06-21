@@ -1,4 +1,8 @@
-# echarts
+[![Node.js CI](https://github.com/pujianguo/echarts/actions/workflows/node.js.yml/badge.svg)](https://github.com/pujianguo/echarts/actions/workflows/node.js.yml)
+
+# echarts示例项目
+
+http://demo.pujianguo.com/echarts
 
 ## Project setup
 ```

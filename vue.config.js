@@ -1,4 +1,5 @@
 module.exports = {
+  outputDir: 'dist/echarts',
   css: {
     loaderOptions: {
       postcss: {

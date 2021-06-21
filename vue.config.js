@@ -1,4 +1,5 @@
 module.exports = {
+  publicPath: '/echarts/',
   outputDir: 'dist/echarts',
   css: {
     loaderOptions: {

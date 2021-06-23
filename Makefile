@@ -1,5 +1,6 @@
 BUCKET=raul-demo
 PROJECT=echarts
+LOGKEY=XXX	# 第一次上传后会生成key，保存在这里
 
 # 本地提交部署
 localDeploy:
@@ -10,9 +11,10 @@ localDeploy:
 	qshell listbucket2 --prefix '${PROJECT}/' ${BUCKET} -o todelete.txt
 	qshell batchdelete --force ${BUCKET} -i todelete.txt
 	rm todelete.txt
+	# 删除本地数据，到达上传所有文件；每次上传都有日志，上传前会对比文件
+	rm -rf /Users/raul/.qshell/qupload/${LOGKEY}
 	# 上传新文件
 	qshell qupload2 --src-dir=./dist/ --overwrite --bucket=${BUCKET}
-
 
 # github action 自动部署
 deploy:
@@ -25,8 +27,3 @@ deploy:
 	rm todelete.txt
 	# 上传新文件
 	./qshell qupload2 --src-dir=./dist/ --overwrite --bucket=${BUCKET}
-
-delete:
-	qshell listbucket2 --prefix '${PROJECT}/' ${BUCKET} -o todelete.txt
-	qshell batchdelete --force ${BUCKET} -i todelete.txt
-	rm todelete.txt

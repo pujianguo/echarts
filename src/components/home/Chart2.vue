@@ -28,7 +28,9 @@ export default {
     this.chartInstance = null
   },
   mounted () {
-    this.initChart()
+    this.$nextTick(() => {
+      this.initChart()
+    })
   },
   beforeDestroy () {
     this.chartInstance && this.chartInstance.dispose()
